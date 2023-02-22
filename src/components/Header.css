@@ -1,0 +1,19 @@
+a{
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-size:20px;
+ 
+}
+
+p{
+  transition: all 0.3s;
+}
+
+p.active{
+color: rgb(255, 181, 44)
+}
+
+p:hover{
+  color: orange;
+}
