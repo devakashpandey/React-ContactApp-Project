@@ -1,12 +1,11 @@
-import { createContext, useContext } from "react";
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database"
 
-
-const FirebaseContext = createContext()
 
 const firebaseConfig = {
     apiKey: "AIzaSyDdMyveqrR4tzIfkausqOyaX3taTQjZ1MY",
     authDomain: "react-contact-app-6f23b.firebaseapp.com",
+    databaseURL: "https://react-contact-app-6f23b-default-rtdb.firebaseio.com",
     projectId: "react-contact-app-6f23b",
     storageBucket: "react-contact-app-6f23b.appspot.com",
     messagingSenderId: "1000165099807",
@@ -15,20 +14,8 @@ const firebaseConfig = {
 
  const firebaseApp = initializeApp(firebaseConfig);
 
+ export const db =  getDatabase(firebaseApp)
 
- export const FirebaseReducer = ({children}) => {
-    return(
-
-        <FirebaseContext.Provider value={null}>
-
-        {children}
-
-        </FirebaseContext.Provider>
-    )
-    
- }
-
- export const UseFirebaseValue = () => useContext(FirebaseContext);
 
 
 

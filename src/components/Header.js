@@ -59,7 +59,8 @@ const Header = () => {
    const location = useLocation()
  
    useEffect(() => {
-       if(location.pathname === "/add") return setActiveTab("AddEditPage")
+       if(location.pathname === "/") return setActiveTab("Home")
+       else if(location.pathname === "/add") return setActiveTab("AddEditPage")
        else if (location.pathname === "/about") return setActiveTab("About")
 
    }, [location])
