@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./Header.css"
 import { styled, alpha, ThemeProvider, createTheme } from '@mui/material/styles';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -57,6 +57,7 @@ const Header = () => {
    const [activeTab, setActiveTab] = useState("Home")
   
    const location = useLocation()
+   const navigate = useNavigate()
  
    useEffect(() => {
        if(location.pathname === "/") return setActiveTab("Home")
@@ -82,7 +83,11 @@ const Header = () => {
       <AppBar position="static">
         <Toolbar>
           
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, fontFamily:"jost" }}>
+          <Typography variant="h5" component="div" 
+          sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, 
+          fontFamily:"jost", cursor:"pointer" }}
+           onClick={()=> navigate("/")}
+          >
             Contact App
           </Typography>
 

@@ -32,7 +32,7 @@ const AddEditPage = () => {
      
      if(name && email && contact){
         
-        const result = await fetch("https://react-contact-app-6f23b-default-rtdb.firebaseio.com/Contacts.json",{
+        const result = await fetch("https://react-contact-app-6f23b-default-rtdb.firebaseio.com/.json",{
           method: "POST",
           headers: {
            "Content_Type" : "application/json"

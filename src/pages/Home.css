@@ -1,4 +1,23 @@
-.table-container{
-   margin: auto;
-   width: 100%;
+.contact-table{
+   margin-top: 150px;
+   margin-left: 30px;
+   margin-right: 30px;
+}
+
+.head-table-row{
+   background-color: rgba(248, 167, 16, 0.915);
+}
+
+.data-row{
+  cursor: pointer;
+}
+
+.table-cell{
+   font-size: 17px !important;
+   font-family: "jost" !important;
+}
+
+.progress-bar{
+  width: 100%;
+  margin-top: 20px;
 }
