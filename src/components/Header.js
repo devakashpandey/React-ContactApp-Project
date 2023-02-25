@@ -106,7 +106,7 @@ const Header = () => {
              <p className={`${activeTab === "AddEditPage" ? "active" : "" }`}
                 onClick={() => setActiveTab("AddEditPage")}
                >
-                 Add Contact
+                 Add 
              </p>
             </NavLink>
 

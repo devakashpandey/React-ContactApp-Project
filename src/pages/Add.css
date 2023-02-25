@@ -1,20 +1,20 @@
 .contact-form{
 display: flex;
 justify-content: center;
-margin-top: 140px;
+margin-top: 120px;
 }
 
 .form{
- width: 400px;
- height: 350px;
+ width: 450px;
+ height: 380px;
  padding: 25px;
  text-align: center;
  border-radius: 10px;       
- box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.13);        
+ box-shadow: rgba(14, 30, 37, 0.12) 0px 3px 6px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;        
 }
 
 .inputBx input{
-width: 240px;
+width: 290px;
 padding: 10px 15px;
 font-size: 17px;
 color: rgb(12, 12, 12);
@@ -26,7 +26,7 @@ color: rgb(12, 12, 12);
 }
 
 .inputBx{
- margin-top: 15px;
+ margin-top: 20px;
 }
                            
 .add-btn{
@@ -36,6 +36,43 @@ color: rgb(12, 12, 12);
   text-transform: capitalize !important;
   font-size: 17px !important;
   padding: 4px 0px !important ;
-  margin-top: 25px !important;
+  margin-top: 28px !important;
   font-weight: bold !important ;
+  font-family: "jost"  !important;
+}
+
+
+.custom-shape-divider-bottom-1677332198 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1677332198 svg {
+  position: relative;
+  display: block;
+  width: calc(137% + 1.3px);
+  height: 180px;
+}
+
+.custom-shape-divider-bottom-1677332198 .shape-fill {
+  fill: #F5A623;
+}
+
+@media (max-width:500px) {
+  .form{
+    height: 350px;
+    margin-top: 50px;
+  }
+
+  .inputBx input{
+    width: 220px;
+  }
+
+  .add-btn{
+    margin-top: 22px !important;
+  }
 }

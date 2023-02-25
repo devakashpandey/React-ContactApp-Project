@@ -1,0 +1,105 @@
+.wrapper{
+text-align: center;
+}
+
+.my-card{
+  margin-top: 100px;
+  padding: 40px;
+  width: 45rem;
+  height: 25rem;
+  text-align: center;
+  border-top-left-radius: 80px !important;
+  border-bottom-right-radius: 80px !important;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 3px 6px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+
+.heading{
+ background-color: rgb(249, 181, 55);
+ padding: 7px;
+ font-size: 25px;
+}
+
+
+.user-details{
+   text-align:justify;
+   font-size: 21px;
+   margin-top: 12px;
+}
+
+.user-details > p{
+  margin-top: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.back-btn{
+    padding: 10px 22px;
+    border: none;  
+    cursor: pointer;  
+    font-weight: 500;
+    font-size: 16px;  
+    margin-top: 12px;   
+    background-color: rgb(2, 159, 211);  
+    color: white;    
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.back-btn:hover{
+   background-color: rgb(1, 172, 230); 
+}
+
+span{
+ font-weight: 500;
+}
+
+
+.custom-shape-divider-bottom-1677333200 {
+                      position: absolute;
+                      bottom: 0;
+                      left: 0;
+                      width: 100%;
+                      overflow: hidden;
+                      line-height: 0;
+                  }
+                  
+                  .custom-shape-divider-bottom-1677333200 svg {
+                      position: relative;
+                      display: block;
+                      width: calc(126% + 1.3px);
+                      height: 93px;
+                  }
+                  
+                  .custom-shape-divider-bottom-1677333200 .shape-fill {
+                      fill: #F5A623;
+                  }
+                  
+
+
+
+
+@media (max-width:700px) {
+   .my-card{
+     width: 30rem;
+     height: 27rem;
+  }             
+ }
+
+@media (max-width:500px) {
+   .my-card{
+       margin-top: 110px;
+       height: 37rem;
+       width: 22rem;
+     }      
+     
+     .user-details > p{
+             font-size: 20px; 
+             display: flex;
+             flex-direction: column;   
+      }
+     
+      .user-details > .id{
+        display: none;
+      }
+}
