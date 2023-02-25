@@ -18,8 +18,6 @@ width: 240px;
 padding: 10px 15px;
 font-size: 17px;
 color: rgb(12, 12, 12);
-text-transform: capitalize;
-
 } 
 
 .container{
@@ -39,4 +37,5 @@ text-transform: capitalize;
   font-size: 17px !important;
   padding: 4px 0px !important ;
   margin-top: 25px !important;
+  font-weight: bold !important ;
 }

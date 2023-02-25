@@ -15,6 +15,7 @@
 .table-cell{
    font-size: 17px !important;
    font-family: "jost" !important;
+   text-transform: capitalize !important;
 }
 
 

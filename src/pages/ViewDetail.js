@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react';
+import "./View.css";
+import { useNavigate, useParams, NavLink } from "react-router-dom";
+import { db } from '../Firebase';
+
+
 
 const ViewDetail = () => {
+
+  
+
   return (
      <>
-     <h1>DETAILS PAGE</h1>
+      
      </>
   )
 }

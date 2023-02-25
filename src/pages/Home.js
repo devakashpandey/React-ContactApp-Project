@@ -29,7 +29,7 @@ const Home = () => {
 
       if(data === null){
          setLoading(true)
-        //  setData("")
+         setData("")
       }else{
         setData({...snapshot.val()})
         setLoading(false)
@@ -38,7 +38,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetchData()
+    fetchData();
   }, [])
 
   // console.log(data)
@@ -46,10 +46,12 @@ const Home = () => {
   const onDelete = (id) =>{
     if(window.confirm("Are you sure that you want to delete the contact ?")){
       remove(ref(db, `/${id}`))
-      toast.success("Contact deleted successfully")
-    }
-        
+      toast.success("Contact Deleted Successfully",{
+        theme:"dark"
+      })
+    }      
   }
+
 
   return (
       <>
@@ -89,13 +91,13 @@ const Home = () => {
                         <TableCell className='table-cell' align="right">{data[id].contact}</TableCell>
 
                         
-                        <TableCell align="right">     
-                        {/* <button onClick={(e)=>  {e.stopPropagation(); onDelete(id)}} className='delete-btn'>Delete</button> */}
-                          <NavLink to={`/update/${id}`}>
-                            <button className='edit-btn'>Edit</button>
-                          </NavLink>
+                        <TableCell align="right">
+                           
+                           <NavLink to={`/update/${id}`}>  
+                            <button  onClick={(e) => {e.stopPropagation(); }} className='edit-btn'>Edit</button>
+                            </NavLink>
 
-                          <button onClick={(e)=>{e.stopPropagation(); onDelete(id)}} className='delete-btn'>Delete</button>
+                            <button onClick={(e)=>{e.stopPropagation(); onDelete(id)}} className='delete-btn'>Delete</button>
                         </TableCell>
 
                       </TableRow>
