@@ -58,7 +58,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState("Home");
-  const [search, setSearch] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -66,7 +65,6 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname === "/") return setActiveTab("Home");
     else if (location.pathname === "/add") return setActiveTab("AddEditPage");
-    else if (location.pathname === "/about") return setActiveTab("About");
     else if (location.pathname === "/contact") return setActiveTab("Contact");
   }, [location]);
 
@@ -114,15 +112,6 @@ const Header = () => {
                     onClick={() => setActiveTab("AddEditPage")}
                   >
                     Add
-                  </p>
-                </NavLink>
-
-                <NavLink to="/about">
-                  <p
-                    className={`${activeTab === "About" ? "active" : ""}`}
-                    onClick={() => setActiveTab("About")}
-                  >
-                    About
                   </p>
                 </NavLink>
               </Toolbar>
