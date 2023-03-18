@@ -1,125 +1,141 @@
-import React, {useState, useEffect} from 'react'
-import "./Home.css"
-import { db } from '../Firebase';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { onValue, ref, remove } from 'firebase/database';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { CircularProgress, Container, } from '@mui/material';
-import { toast } from 'react-toastify';
-
-
+import React, { useState, useEffect } from "react";
+import "./Home.css";
+import { db } from "../Firebase";
+import { NavLink, useNavigate } from "react-router-dom";
+import { onValue, ref, remove } from "firebase/database";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { CircularProgress, Container } from "@mui/material";
+import { toast } from "react-toastify";
 
 const Home = () => {
+  const [data, setData] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const [data, setData] = useState("")
-  const [loading, setLoading] = useState(false)
-
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const fetchData = () => {
-   onValue(ref(db), snapshot => {
-      const data =  snapshot.val();
+    onValue(ref(db), (snapshot) => {
+      const data = snapshot.val();
 
-      if(data === null){
-         setLoading(true)
-         setData("")
-      }else{
-        setData({...snapshot.val()})
-        setLoading(false)
+      if (data === null) {
+        setLoading(true);
+        setData("");
+      } else {
+        setData({ ...snapshot.val() });
+        setLoading(false);
       }
-   });
-  }
+    });
+  };
 
   useEffect(() => {
     fetchData();
-  }, [])
+  }, []);
 
   // console.log(data)
 
-  const onDelete = (id) =>{
-    if(window.confirm("Are you sure that you want to delete the contact ?")){
-      remove(ref(db, `/${id}`))
-      toast.success("Contact Deleted Successfully",{
-        theme:"dark"
-      })
-    }      
-  }
-
+  const onDelete = (id) => {
+    if (window.confirm("Are you sure that you want to delete the contact ?")) {
+      remove(ref(db, `/${id}`));
+      toast.success("Contact Deleted Successfully", {
+        theme: "dark",
+      });
+    }
+  };
 
   return (
-      <>
+    <>
       <Container>
-      <div className="contact-table">
-      <TableContainer component={Paper}>
-              {
-                loading ? ( <CircularProgress className='progress-bar'/> ) :
-                 (
-                  <Table sx={{ minWidth: 500 }} >
+        <div className="contact-table">
+          <center>
+            <h1>CONTACT LIST BOOK</h1>
+          </center>{" "}
+          <br />
+          <TableContainer component={Paper}>
+            {loading ? (
+              <CircularProgress className="progress-bar" />
+            ) : (
+              <Table sx={{ minWidth: 500 }}>
+                <TableHead className="head-table-row">
+                  <TableRow className="data-row">
+                    <TableCell className="table-cell">No.</TableCell>
+                    <TableCell className="table-cell" align="right">
+                      Name
+                    </TableCell>
+                    <TableCell className="table-cell" align="right">
+                      Email
+                    </TableCell>
+                    <TableCell className="table-cell" align="right">
+                      Contact
+                    </TableCell>
+                    <TableCell className="table-cell action" align="center">
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Action
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
 
-                  <TableHead className='head-table-row'>
-                    <TableRow className="data-row">
+                <TableBody>
+                  {Object.keys(data).map((id, index) => (
+                    <TableRow
+                      hover
+                      key={id}
+                      onClick={() => navigate(`/detail/${id}`)}
+                      className="data-row"
+                    >
+                      <TableCell
+                        className="table-cell"
+                        component="th"
+                        scope="row"
+                      >
+                        {index + 1}.
+                      </TableCell>
+                      <TableCell className="table-cell name" align="right">
+                        {data[id].name}
+                      </TableCell>
+                      <TableCell className="table-cell" align="right">
+                        {data[id].email}
+                      </TableCell>
+                      <TableCell className="table-cell" align="right">
+                        {data[id].contact}
+                      </TableCell>
 
-                      <TableCell className='table-cell'>No.</TableCell>
-                      <TableCell className='table-cell' align="right">Name</TableCell>
-                      <TableCell className='table-cell' align="right">Email</TableCell>
-                      <TableCell className='table-cell' align="right">Contact</TableCell>
-                      <TableCell className='table-cell action' align="center">
-                        &nbsp;{" "}&nbsp;{" "}&nbsp;{" "}&nbsp;{" "}&nbsp;{" "}
-                        &nbsp;{" "}&nbsp;{" "}Action
-                        </TableCell>
-                    
+                      <TableCell align="right">
+                        <NavLink to={`/update/${id}`}>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                            }}
+                            className="edit-btn"
+                          >
+                            Edit
+                          </button>
+                        </NavLink>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onDelete(id);
+                          }}
+                          className="delete-btn"
+                        >
+                          Delete
+                        </button>
+                      </TableCell>
                     </TableRow>
-                  </TableHead>
-
-
-                  <TableBody>
-                    {Object.keys(data).map((id, index) => (
-                      <TableRow hover key={id} onClick={()=> navigate(`/detail/${id}`)} className="data-row">
-
-                        <TableCell className='table-cell' component="th" scope="row">
-                                    {index + 1}.
-                        </TableCell>
-                        <TableCell className='table-cell name' align="right">{data[id].name}</TableCell>
-                        <TableCell className='table-cell' align="right">{data[id].email}</TableCell>
-                        <TableCell className='table-cell' align="right">{data[id].contact}</TableCell>
-
-                        
-                        <TableCell align="right">
-                           
-                           <NavLink to={`/update/${id}`}>  
-                            <button  onClick={(e) => {e.stopPropagation(); }} className='edit-btn'>Edit</button>
-                            </NavLink>
-
-                            <button onClick={(e)=>{e.stopPropagation(); onDelete(id)}} className='delete-btn'>Delete</button>
-                        </TableCell>
-
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-
-                 )
-              }
-    </TableContainer>
-      </div>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </TableContainer>
+        </div>
       </Container>
-
-
-      <div className="custom-shape-divider-bottom-1677332868">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z" class="shape-fill"></path>
-    </svg>
-</div>
-
-      </>
-  )
-}
+    </>
+  );
+};
 
 export default Home;

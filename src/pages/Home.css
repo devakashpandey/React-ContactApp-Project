@@ -1,89 +1,67 @@
-.contact-table{
-   margin-top: 120px;
-   margin-left: 30px;
-   margin-right: 30px;
+.contact-table {
+  margin-top: 60px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
-.head-table-row{
-   background-color: rgba(248, 167, 16, 0.915);
+.head-table-row {
+  background-color: rgba(248, 167, 16, 0.915);
 }
 
-.data-row{
+.data-row {
   cursor: pointer;
 }
 
-.table-cell{
-   font-size: 17px !important;
-   font-family: "jost" !important;
+.table-cell {
+  font-size: 17px !important;
+  font-family: "jost" !important;
 }
 
-.name{
-   text-transform: capitalize;
+.name {
+  text-transform: capitalize;
 }
 
-.progress-bar{
+.progress-bar {
   width: 100%;
   margin-top: 20px;
 }
 
- .action{
-   margin-left: 200px !important;
+.action {
+  margin-left: 200px !important;
 }
 
-.edit-btn{
-   padding: 7px 20px;
-   border: none;
-   font-weight: 500;
-   background-color: rgb(9, 122, 236) ;
-   color: white;
-   border-radius: 3px;
-   cursor: pointer;
-   font-size: 15px;
+.edit-btn {
+  padding: 7px 20px;
+  border: none;
+  font-weight: 500;
+  background-color: rgb(9, 122, 236);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.edit-btn:hover{
-  
-   background-color: rgb(23, 137, 251) ;
+.edit-btn:hover {
+  background-color: rgb(23, 137, 251);
 }
 
-.delete-btn{
-   padding: 7px 20px;
-   border: none;
-   font-weight: 500;
-   background-color: rgb(228, 101, 3) ;
-   color: white;
-   border-radius: 3px;
-   cursor: pointer;
-   font-size: 15px;
+.delete-btn {
+  padding: 7px 20px;
+  border: none;
+  font-weight: 500;
+  background-color: rgb(228, 101, 3);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.delete-btn:hover{
-   background-color: rgb(250, 113, 8) ;
+.delete-btn:hover {
+  background-color: rgb(250, 113, 8);
 }
 
-
-.custom-shape-divider-bottom-1677332868 {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   overflow: hidden;
-   line-height: 0;
-}
-
-.custom-shape-divider-bottom-1677332868 svg {
-   position: relative;
-   display: block;
-   width: calc(147% + 1.3px);
-   height: 123px;
-}
-
-.custom-shape-divider-bottom-1677332868 .shape-fill {
-   fill: #F5A623;
-}
-
-@media (max-width:500px) {
-   .contact-table{
-      margin-top: 13rem;
-   }
+@media (max-width: 500px) {
+  .contact-table {
+    margin-top: 13rem;
+  }
 }

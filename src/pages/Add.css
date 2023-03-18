@@ -42,7 +42,7 @@ color: rgb(12, 12, 12);
 }
 
 
-.custom-shape-divider-bottom-1677332198 {
+.custom-shape-divider-bottom-1677334060 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -51,16 +51,18 @@ color: rgb(12, 12, 12);
   line-height: 0;
 }
 
-.custom-shape-divider-bottom-1677332198 svg {
+.custom-shape-divider-bottom-1677334060 svg {
   position: relative;
   display: block;
-  width: calc(137% + 1.3px);
-  height: 180px;
+  width: calc(154% + 1.3px);
+  height: 102px;
 }
 
-.custom-shape-divider-bottom-1677332198 .shape-fill {
+.custom-shape-divider-bottom-1677334060 .shape-fill {
   fill: #F5A623;
 }
+
+
 
 @media (max-width:500px) {
   .form{
